@@ -1,7 +1,8 @@
 #' abbreviate_text
 #'
-#' Abbreviate strings to at least \code{minlength} characters, such that they remain unique (if they were).
-#' Duplicate strings or \code{NA}s are allowed.
+#' Shorten strings to at least \code{minlength} characters so that they remain unique (if they were).
+#' Duplicate strings or \code{NA}s are allowed. Note that different orders in the string may result
+#' in different abbreviations.
 #'
 #' @param txt character: vector of strings to abbreviate
 #' @param minlength integer: the minimum length of the abbreviations
@@ -28,8 +29,8 @@
 #' # unique abbreviations, but not really intuitive
 #' abbreviate_text(txt, 0)
 abbreviate_text <- function(txt, minlength=3, alnum=TRUE) {
-  txtc <- as.character(txt)
-  txtc <- txtc[!is.na(txtc)]
+  txt  <- as.character(txt)
+  txtc <- txt[!is.na(txt)]
   txtc <- txtc[!duplicated(txtc)]
   # if (anyDuplicated(txt)) warning ("duplicate strings")
   n   <- length(txtc)

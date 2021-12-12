@@ -17,8 +17,9 @@ abbreviate_text(txt, minlength = 3, alnum = TRUE)
 abbreviated strings
 }
 \description{
-Abbreviate strings to at least \code{minlength} characters, such that they remain unique (if they were).
-Duplicate strings or \code{NA}s are allowed.
+Shorten strings to at least \code{minlength} characters so that they remain unique (if they were).
+Duplicate strings or \code{NA}s are allowed. Note that different orders in the string may result
+in different abbreviations.
 }
 \examples{
 # unique with first letters is possible

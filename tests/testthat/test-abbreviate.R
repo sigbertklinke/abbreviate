@@ -19,8 +19,12 @@ test_that("abbreviate", {
   res <- c("ward", "warD", "sin", "com", "ave", "mcq", "med", "cen")
   names(res) <- txt
   expect_equal(abbreviate_text(txt, 3), res)
-  #' # unique abbreviations, but not really intuitive
+  # unique abbreviations, but not really intuitive
   res <- c("w", "r", "s", "c", "a", "q", "m", "e")
   names(res) <- txt
   expect_equal(abbreviate_text(txt, 0), res)
+  # factor variables
+  res <- c("set", "ver",  "vir")
+  names(res) <- c("setosa", "versicolor", "virginica")
+  expect_equal(abbreviate_text(unique(iris[,5])), res)
 })
