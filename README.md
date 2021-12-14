@@ -26,23 +26,18 @@ install_github("sigbertklinke/abbreviate")
 # unique with first letters is possible
 txt <- c("euclidean", "maximum", "manhattan", "canberra", "minimum")
 abbreviate_text(txt, 3)
-```
-
-```R
+#
 # if identical strings used then same abbreviation
 txt <- c("euclidean", "maximum", "manhattan", "manhattan", "canberra", "minimum")
 abbreviate_text(txt, 3)
-```
-
-```R
+#
 # unique abbreviations
 txt <- c("ward.D", "ward.D2", "single", "complete", "average", "mcquitty", "median", "centroid")
 abbreviate_text(txt, 3)
+#
 # unique abbreviations, but not really intuitive
-#bbreviate_text(txt, 0)
-```
-
-```R
+abbreviate_text(txt, 0)
+#
 # factor variable
 abbreviate_text(unique(iris[,5]))
 abbreviate_text(iris[,5])
