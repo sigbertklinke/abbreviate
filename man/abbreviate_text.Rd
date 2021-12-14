@@ -19,7 +19,9 @@ abbreviated strings
 \description{
 Shorten strings to at least \code{minlength} characters so that they remain unique (if they were).
 Duplicate strings or \code{NA}s are allowed. Note that different orders in the string may result
-in different abbreviations.
+in different abbreviations. Since the algorithm does not guarantee that unique abbreviations
+will always be found, a warning is issued if the number of unique abbreviations and unique strings
+is unequal.
 }
 \examples{
 # unique with first letters is possible
@@ -28,8 +30,8 @@ abbreviate_text(txt, 3)
 # if identical strings used then same abbreviation
 txt <- c("euclidean", "maximum", "manhattan", "manhattan", "canberra", "minimum")
 abbreviate_text(txt, 3)
-# warnings that identical strings and identical abbreviations used
-txt <- c("euclidean", "maximum", "manhattan", NA, "canberra", "minimum", "abc", "abc")
+# NAs are allowed
+txt <- c("euclidean", "maximum", "manhattan", NA, "canberra", "minimum")
 abbreviate_text(txt, 3)
 # unique abbreviations
 txt <- c("ward.D", "ward.D2", "single", "complete", "average", "mcquitty", "median", "centroid")

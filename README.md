@@ -26,7 +26,7 @@ install_github("sigbertklinke/abbreviate")
 # unique with first letters is possible
 txt <- c("euclidean", "maximum", "manhattan", "canberra", "minimum")
 abbreviate_text(txt, 3)
-``
+```
 
 ```R
 # if identical strings used then same abbreviation

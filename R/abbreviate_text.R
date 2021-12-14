@@ -2,7 +2,9 @@
 #'
 #' Shorten strings to at least \code{minlength} characters so that they remain unique (if they were).
 #' Duplicate strings or \code{NA}s are allowed. Note that different orders in the string may result
-#' in different abbreviations.
+#' in different abbreviations. Since the algorithm does not guarantee that unique abbreviations
+#' will always be found, a warning is issued if the number of unique abbreviations and unique strings
+#' is unequal.
 #'
 #' @param txt character: vector of strings to abbreviate
 #' @param minlength integer: the minimum length of the abbreviations
@@ -20,8 +22,8 @@
 #' # if identical strings used then same abbreviation
 #' txt <- c("euclidean", "maximum", "manhattan", "manhattan", "canberra", "minimum")
 #' abbreviate_text(txt, 3)
-#' # warnings that identical strings and identical abbreviations used
-#' txt <- c("euclidean", "maximum", "manhattan", NA, "canberra", "minimum", "abc", "abc")
+#' # NAs are allowed
+#' txt <- c("euclidean", "maximum", "manhattan", NA, "canberra", "minimum")
 #' abbreviate_text(txt, 3)
 #' # unique abbreviations
 #' txt <- c("ward.D", "ward.D2", "single", "complete", "average", "mcquitty", "median", "centroid")
@@ -83,5 +85,6 @@ abbreviate_text <- function(txt, minlength=3, alnum=TRUE) {
   for (i in seq(length(txt))) {
     if (!is.na(txt[i])) ret[i] <- df$ret[which(df$txt==txt[i])]
   }
+  if (length(unique(txt))!=length(unique(ret))) warning("strings and abbreviations do not match")
   structure(ret, names=txt)
 }

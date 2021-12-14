@@ -1,12 +1,13 @@
 Package: abbreviate
 Type: Package
 Title: Readable String Abbreviation 
-Version: 0.1
-Date: 2021-12-12
+Version: 0.2
+Date: 2021-12-13
 Authors@R: 
   person("Sigbert", "Klinke", email="sigbert@hu-berlin.de", role=c("aut", "cre"))
 Description: Strings are abbreviated to at least "minlength" characters, such that they remain unique 
-    (if they were). The abbreviations should be recognisable.
+    (if they were). The abbreviations should be recognisable. The algorithm does not guarantee that a 
+    always a solution is found.
 URL: https://github.com/sigbertklinke/abbreviate (development version)
 RoxygenNote: 7.1.1
 LazyData: true
